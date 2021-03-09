@@ -8,7 +8,6 @@ Funcionalidade: Login
     Contexto: Página principal
         Dado que eu acesso a página principal
 
-    @logout
     Cenario: Usuário deve ser autorizado
 
         Quando eu faço login com "admin_geral" e "abacoaba"

@@ -17,18 +17,20 @@ class LoginPage {
         cy.visit(url)
     }
 
+
     // Clica no botão que acessa a página de login do site
     logarComo(usuario,senha) {
 
         cy.wait(500);
 
         cy.get(loginElements.campoUsuario())
+            .should('be.visible')
             .clear()
-            .then(e => { if (usuario !== '') cy.wrap(e).type(usuario) });
+            .then(e => { if (usuario !== '') cy.wrap(e).type(usuario).should('have.value',usuario)  });
 
         cy.get(loginElements.campoSenha())
             .clear()
-            .then(e => { if (senha !== '') cy.wrap(e).type(senha) });
+            .then(e => { if (senha !== '') cy.wrap(e).type(senha).should('have.value',senha) });
 
         cy.get(loginElements.botaoLogin())
             .click();
