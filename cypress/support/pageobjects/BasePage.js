@@ -24,7 +24,7 @@ class BasePage {
 
     redirecionaHomePage(){
         //aguarda 5s
-        cy.wait(5000);
+        cy.wait(500);
         cy.window().then((win) => {
             const location = win.location.href;
             cy.visit(location.replace('__', 'bh_hml_quartzo/servlet'));
@@ -41,6 +41,10 @@ class BasePage {
 
     clicar_no_botal_voltar(){
         cy.get('#BTNTRN_CANCEL').should('be.visible').click();
+    }
+
+    clicar_no_botao_confirmar(){
+        cy.get(baseElements.botao_confirmar()).should('be.visible').click();
     }
     
 
